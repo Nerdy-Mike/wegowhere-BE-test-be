@@ -11,4 +11,19 @@ services:
       - '15672:15672'
     env_file:
       - .env
-      
+
+  nestjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nestjs
+    ports:
+      - '3001:3001'
+      - '8001:8001'
+    working_dir: /usr/src
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env
+    depends_on:
+      - rabbitmq

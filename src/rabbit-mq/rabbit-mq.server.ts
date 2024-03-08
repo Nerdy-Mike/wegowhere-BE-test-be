@@ -3,7 +3,7 @@ import * as amqp from 'amqplib';
 
 @Injectable()
 export class RabbitMQServer implements OnModuleInit {
-  private readonly url = 'amqp://localhost';
+  private readonly url = 'amqp://rabbitmq';
 
   async onModuleInit(): Promise<void> {
     const connection = await amqp.connect(this.url);
