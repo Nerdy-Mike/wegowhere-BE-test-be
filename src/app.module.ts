@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ChatGateway } from './chat/chat.gateway';
+import { RabbitMQModule } from './rabbit-mq/rabbit-mq.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { ChatGateway } from './chat/chat.gateway';
       isGlobal: true,
       envFilePath: './../.env',
     }),
+    RabbitMQModule,
   ],
   controllers: [AppController],
   providers: [AppService, ChatGateway],
